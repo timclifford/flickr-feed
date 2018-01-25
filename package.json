@@ -1,0 +1,17 @@
+{
+  "name": "flickr-feed",
+  "version": "1.0.0",
+  "description": "A basic public Flickr feed using Flickr API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tim Clifford",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "^1.1.0"
+  }
+}
