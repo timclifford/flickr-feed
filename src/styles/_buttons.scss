@@ -1,0 +1,17 @@
+/* Buttons */
+.button--back {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  background: #48D1CC;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.button--back:hover {
+  background: #37A39F;
+  text-decoration: none;
+}

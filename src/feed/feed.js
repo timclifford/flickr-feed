@@ -1,5 +1,4 @@
 import React from 'react';
-import './feed.css';
 import { Link } from 'react-router-dom';
 import Truncate from 'react-truncate';
 import dateFormat from 'dateformat';

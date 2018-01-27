@@ -1,6 +1,5 @@
 import React from 'react';
 import { Header } from '../header/header';
-import './photo.css';
 import Truncate from 'react-truncate';
 import dateFormat from 'dateformat';
 

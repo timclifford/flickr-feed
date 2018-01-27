@@ -29,57 +29,8 @@ body {
   }
 }
 
-/* Buttons */
-.button--back {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 16px;
-  background: #48D1CC;
-  padding: 10px 20px;
-  text-decoration: none;
-}
-
-.button--back:hover {
-  background: #37A39F;
-  text-decoration: none;
-}
-
-/* Typography */
-
-h1 {
-  transition: all 0.35s ease-out;
-}
-
-h2 {
-  margin: 0 0 10px;
-}
-
-a {
-  color: blue;
-  text-decoration: underline;
-  transition: all 0.35s ease-out;
-}
-
-
-/* Nav */
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-ul a {
-  font-weight: 600;
-}
-
-a h1:hover, ul a:hover {
-  color: #1DE9B6;
-}
-
 @import "styles/_header.scss";
 @import "styles/_feed.scss";
 @import "styles/_photo.scss";
+@import "styles/_typography.scss";
+@import "styles/_buttons.scss";
