@@ -1,0 +1,61 @@
+.feed__item {
+  position: relative;
+  padding: 5px 0 5px 3px;
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+}
+
+.feed__item .photo__meta {
+  padding-bottom: 20px;
+}
+
+.photo__thumbnail {
+  display: inline-block;
+  width: 20%;
+}
+
+.photo__link {
+  display: block;
+}
+
+.photo__meta {
+  display: inline-block;
+  width: 80%;
+  float: right;
+  padding: 0 20px;
+}
+
+.photo__author {
+  width: 100%;
+  padding: 0 20px 5px 0;
+}
+
+.photo__published {
+  width: 100%;
+  padding: 0 20px 5px 0;
+}
+
+.photo__view-more {
+  width: 100%;
+}
+
+@media only screen and (min-width: 800px) {
+  .photo__author {
+    display: inline-block;
+    width: auto;
+  }
+  .photo__published {
+    display: inline-block;
+    width: auto;
+  }
+  .photo__view-more {
+    display: inline-block;
+    width: auto;
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
