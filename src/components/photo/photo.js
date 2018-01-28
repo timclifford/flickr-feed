@@ -35,7 +35,6 @@ export class Photo extends React.Component {
           const id = this.props.match.params.id;
           const photo = data.items[id];
           const src = data.items[id].media.m;
-          console.log(photo);
           this.setState({ photo });
           this.setState({ src });
         });
@@ -58,35 +57,40 @@ export class Photo extends React.Component {
 
   render() {
     return(
-      <div className="container">
-        <div className="photo__header">
-          <a href={this.state.photo.link} className="photo__link">
-            <h2 className="photo__title">
-              <Truncate lines={1} ellipsis={<span>...</span>}>
-                {this.state.photo.title}
-              </Truncate>
-            </h2>
-          </a>
-          <div className="go-back"><a href="/" className="button button--back">Back</a></div>
+      <div className="photoWrapper">
+        <div className="headerWrapper">
+          <Header />
         </div>
-        <div className="photo__publisher">
-          <span className="photo__author">
-            Posted by: <a href={'https://www.flickr.com/photos/' + this.state.photo.author_id}>{this.state.photo.author}</a>
-          </span>
-          <span className="photo__published">Published: {dateFormat(this.state.photo.published, "dS mmmm yyyy h:MM")}</span>
-        </div>
-
-        <div className="photo__content">
-          <div className="photo__thumbnail">
+        <div className="container">
+          <div className="photo__header">
             <a href={this.state.photo.link} className="photo__link">
-              <img src={this.state.src}/>
+              <h2 className="photo__title">
+                <Truncate lines={1} ellipsis={<span>...</span>}>
+                  {this.state.photo.title}
+                </Truncate>
+              </h2>
             </a>
+            <div className="go-back"><a href="/" className="button button--back">Back</a></div>
           </div>
-          <div className="photo__meta">
-            <p><strong>Title:</strong> {this.state.photo.title}</p>
-            <p><strong>Date taken:</strong> {this.state.photo.date_taken}</p>
-            <p><strong>Source:</strong> {this.state.photo.link}</p>
-            <p><strong>Tags:</strong> {this.state.photo.tags}</p>
+          <div className="photo__publisher">
+            <span className="photo__author">
+              Posted by: <a href={'https://www.flickr.com/photos/' + this.state.photo.author_id}>{this.state.photo.author}</a>
+            </span>
+            <span className="photo__published">Published: {dateFormat(this.state.photo.published, "dS mmmm yyyy h:MM")}</span>
+          </div>
+
+          <div className="photo__content">
+            <div className="photo__thumbnail">
+              <a href={this.state.photo.link} className="photo__link">
+                <img src={this.state.src}/>
+              </a>
+            </div>
+            <div className="photo__meta">
+              <p><strong>Title:</strong> {this.state.photo.title}</p>
+              <p><strong>Date taken:</strong> {this.state.photo.date_taken}</p>
+              <p><strong>Source:</strong> {this.state.photo.link}</p>
+              <p><strong>Tags:</strong> {this.state.photo.tags}</p>
+            </div>
           </div>
         </div>
       </div>

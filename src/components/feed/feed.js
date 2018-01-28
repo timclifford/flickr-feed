@@ -9,7 +9,8 @@ export class Feed extends React.Component {
     this.state = {
       feed: {
         items: []
-      }
+      },
+      hasTagResults: false
     }
     this.getData = this.getData.bind(this);
   }
@@ -34,6 +35,7 @@ export class Feed extends React.Component {
 
         response.json().then(data => {
           const feed = data;
+          console.log(this);
           this.setState({ feed });
         });
 
@@ -45,6 +47,7 @@ export class Feed extends React.Component {
 
   componentDidMount() {
     this.getData();
+    this.getTagResults();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -53,19 +56,50 @@ export class Feed extends React.Component {
     }
   }
 
+  getTagResults() {
+    const hasTagResults = this.props.tagResults;
+    let results = null;
+
+    if (hasTagResults && this.props.tagResults.items) {
+      results = this.props.tagResults;
+    } else if (this.state.feed.items) {
+      results = this.state.feed;
+    }
+
+    return results;
+  }
+
+  checkIfTagResults() {
+    let isTagResults = null;
+    if (this.props.tagResults) {
+      isTagResults = this.props.tagResults.items ? true : false;
+    }
+    return isTagResults;
+  }
+
   render() {
     return(
       <div className="feed__wrapper">
-        {this.state.feed.items.map((element, index) => {
+        <h2>{this.props.tagResults ? this.props.tagResults.title : this.state.feed.title}</h2>
+
+        {this.getTagResults().items.map((element, index) => {
+          let link = null;
+
+          if (this.checkIfTagResults()) {
+            link = `/tag/${index}/${element.author_id}`;
+          } else {
+            link = `/photo/${index}/${element.author_id}`;
+          }
+
           return(
             <article key={index} className="feed__item">
               <div className="photo__thumbnail">
-                <a href={`/photo/${index}/${this.state.feed.items[index].author_id}`} className="photo__link">
+                <a href={link} className="photo__link">
                   <img src={element.media.m}/>
                 </a>
               </div>
               <div className="photo__meta">
-                <Link key={index} to={`/photo/${index}/${this.state.feed.items[index].author_id}`} className="photo__link">
+                <Link key={index} to={link} className="photo__link">
                   <h2 className="photo__title">
                     <Truncate lines={1} ellipsis={<span>...</span>}>
                       {element.title}

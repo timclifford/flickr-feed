@@ -1,22 +1,24 @@
 form {
   position: relative;
-  padding-top: 25px;
+  padding: 20px 0px;
   text-align: center;
+  border-bottom: 1px solid #ccc;
 }
 
 .searchBar {
   position: relative;
   font-family: 'Open Sans', sans-serif;
-  width: 100%;
+  width: 80%;
   padding: 20px 0 20px 40px;
   border: 1px solid #bdbdbd;
+  background: #fefefe;
   color: #000;
   outline: none;
   transition: all 0.35s ease-out;
 }
 
 .searchBar:focus {
-  border: 1px solid #1DE9B6;
+  border: 1px solid #1dd1a1;
 }
 
 ::placeholder {
@@ -32,10 +34,41 @@ form {
   position: absolute;
   z-index: 9999;
   margin: 18px 0 0 10px;
+  width: 25px;
 }
 
 .noDisplay {
   display: none;
   opacity: 0;
   visibility: hidden;
+}
+
+.formResults {
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+  height: 500px;
+  overflow-y: visible;
+  text-align: left;
+}
+
+.formResults li {
+  background-color: #f2f2f2;
+  transition: all 0.35s ease-out;
+}
+
+.formResults li:hover {
+  background-color: #263238;
+}
+
+.formResults a {
+  color: #111;
+  display: flex;
+  padding: 20px 20px;
+}
+
+.searchResult {
+  width: 100px;
+  margin-right: 20px;
+  align-self: center;
 }

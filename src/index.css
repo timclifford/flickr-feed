@@ -23,12 +23,72 @@ body {
     width: 1000px;
     margin: 0 auto; } }
 
+/* Global */
+/* Typography */
+h1 {
+  transition: all 0.35s ease-out; }
+
+h2 {
+  margin: 10px 0; }
+  h2 span {
+    font-style: italic; }
+
+a {
+  color: #2e86de;
+  text-decoration: none;
+  transition: all 0.35s ease-out; }
+
+/* Buttons */
+.button--back {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  background: #48D1CC;
+  padding: 10px 20px;
+  text-decoration: none; }
+
+.button--back:hover {
+  background: #37A39F;
+  text-decoration: underline; }
+
+.button--search {
+  width: 20%;
+  padding: 20px;
+  background: #feca57;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  border: 1px solid #feca57;
+  -webkit-border-radius: 0 5px 5px 0;
+  -moz-border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
+  transition: 0.6s ease; }
+
+.button--search:hover {
+  background: #ff9f43;
+  text-decoration: underline; }
+
+/* Layout */
+.headerWrapper {
+  background: #2c242e; }
+
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 25px; }
+  padding-bottom: 25px;
+  margin: 0 auto;
+  max-width: 960px; }
+  header a {
+    color: #ad2b65; }
+    header a:hover {
+      color: #fff; }
 
 .logo {
   width: 30px;
@@ -43,7 +103,7 @@ ul {
 ul a {
   font-weight: 600; }
 
-a h1:hover, ul a:hover {
+ul a:hover {
   color: #1DE9B6; }
 
 .navbar li {
@@ -65,6 +125,71 @@ a h1:hover, ul a:hover {
   .navbar li {
     margin: 0 0 0 20px; } }
 
+/* Components */
+form {
+  position: relative;
+  padding: 20px 0px;
+  text-align: center;
+  border-bottom: 1px solid #ccc; }
+
+.searchBar {
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+  width: 80%;
+  padding: 20px 0 20px 40px;
+  border: 1px solid #bdbdbd;
+  background: #fefefe;
+  color: #000;
+  outline: none;
+  transition: all 0.35s ease-out; }
+
+.searchBar:focus {
+  border: 1px solid #1dd1a1; }
+
+::placeholder {
+  color: #000;
+  transition: all 0.35s ease-out; }
+
+.searchBar:focus::placeholder {
+  color: #1DE9B6; }
+
+.searchIcon {
+  position: absolute;
+  z-index: 9999;
+  margin: 18px 0 0 10px;
+  width: 25px; }
+
+.noDisplay {
+  display: none;
+  opacity: 0;
+  visibility: hidden; }
+
+.formResults {
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+  height: 500px;
+  overflow-y: visible;
+  text-align: left; }
+
+.formResults li {
+  background-color: #f2f2f2;
+  transition: all 0.35s ease-out; }
+
+.formResults li:hover {
+  background-color: #263238; }
+
+.formResults a {
+  color: #111;
+  display: flex;
+  padding: 20px 20px; }
+
+.searchResult {
+  width: 100px;
+  margin-right: 20px;
+  align-self: center; }
+
+/* Pages */
 .feed__item {
   position: relative;
   padding: 5px 0 5px 3px;
@@ -76,7 +201,8 @@ a h1:hover, ul a:hover {
 
 .photo__thumbnail {
   display: inline-block;
-  width: 20%; }
+  width: 20%;
+  float: left; }
 
 .photo__link {
   display: block; }
@@ -84,7 +210,6 @@ a h1:hover, ul a:hover {
 .photo__meta {
   display: inline-block;
   width: 80%;
-  float: right;
   padding: 0 20px; }
 
 .photo__author {
@@ -130,30 +255,24 @@ img {
 .bold {
   font-weight: 600; }
 
-/* Typography */
-h1 {
-  transition: all 0.35s ease-out; }
+.tag__header {
+  display: block;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc; }
 
-h2 {
-  margin: 0 0 10px; }
+.tag__header h2 {
+  display: inline-block;
+  width: 80%;
+  margin: 20px 0; }
 
-a {
-  color: blue;
-  text-decoration: underline;
-  transition: all 0.35s ease-out; }
+.tag__header span {
+  font-style: italic; }
 
-/* Buttons */
-.button--back {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 16px;
-  background: #48D1CC;
-  padding: 10px 20px;
-  text-decoration: none; }
+.tag__content {
+  display: flex;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc; }
 
-.button--back:hover {
-  background: #37A39F;
-  text-decoration: none; }
+.tag__results {
+  padding: 20px;
+  background: #f6f6f6; }

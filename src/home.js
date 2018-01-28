@@ -1,20 +1,19 @@
 import React from 'react';
-import { Header } from './header/header';
-import { Feed } from './feed/feed';
-
-
-//import { Form } from './form/form';
-//import { TopRecipes } from './topRecipes/topRecipes';
-
-
-
+import { Header } from './components/header/header';
+import { Feed } from './components/feed/feed';
+import { SearchForm } from './components/searchForm/searchForm';
 
 export class Home extends React.Component {
   render() {
     return(
-      <div className="container">
-        <Header />
-        <Feed />
+      <div className="home">
+        <div className="headerWrapper">
+          <Header />
+        </div>
+        <div className="container">
+          <SearchForm />
+          <Feed />
+        </div>
       </div>
     );
   }

@@ -1,0 +1,8 @@
+{
+  "short_name": "Simple Flickr Feed",
+  "name": "Public Flickr Feed based off Flickr API",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

@@ -29,8 +29,17 @@ body {
   }
 }
 
-@import "styles/_header.scss";
-@import "styles/_feed.scss";
-@import "styles/_photo.scss";
+/* Global */
 @import "styles/_typography.scss";
 @import "styles/_buttons.scss";
+
+/* Layout */
+@import "styles/_header.scss";
+
+/* Components */
+@import "styles/_form.scss";
+
+/* Pages */
+@import "styles/_feed.scss";
+@import "styles/_photo.scss";
+@import "styles/_tag.scss";

@@ -5,11 +5,15 @@ h1 {
 }
 
 h2 {
-  margin: 0 0 10px;
+  margin: 10px 0;
+
+  span {
+    font-style: italic;
+  }
 }
 
 a {
-  color: blue;
-  text-decoration: underline;
+  color: #2e86de;
+  text-decoration: none;
   transition: all 0.35s ease-out;
 }

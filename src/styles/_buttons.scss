@@ -6,6 +6,7 @@
   font-family: Arial;
   color: #ffffff;
   font-size: 16px;
+  font-weight: bold;
   background: #48D1CC;
   padding: 10px 20px;
   text-decoration: none;
@@ -13,5 +14,26 @@
 
 .button--back:hover {
   background: #37A39F;
-  text-decoration: none;
+  text-decoration: underline;
+}
+
+.button--search {
+  width: 20%;
+  padding: 20px;
+  background: #feca57;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  border: 1px solid #feca57;
+  -webkit-border-radius: 0 5px 5px 0;
+  -moz-border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
+  transition: 0.6s ease;
+}
+
+.button--search:hover {
+  background: #ff9f43;
+  text-decoration: underline;
 }

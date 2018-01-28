@@ -1,0 +1,26 @@
+.tag__header {
+  display: block;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.tag__header h2 {
+  display: inline-block;
+  width: 80%;
+  margin: 20px 0;
+}
+
+.tag__header span {
+  font-style: italic;
+}
+
+.tag__content {
+  display: flex;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.tag__results {
+  padding: 20px;
+  background: #f6f6f6;
+}

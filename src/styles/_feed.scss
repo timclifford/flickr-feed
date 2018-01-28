@@ -12,6 +12,7 @@
 .photo__thumbnail {
   display: inline-block;
   width: 20%;
+  float: left;
 }
 
 .photo__link {
@@ -21,7 +22,6 @@
 .photo__meta {
   display: inline-block;
   width: 80%;
-  float: right;
   padding: 0 20px;
 }
 

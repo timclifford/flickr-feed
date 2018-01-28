@@ -2,13 +2,20 @@
 Flickr Public Feed
 ------------------
 
-Dev
+# Dev
 
 To begin the development, run `npm start`.
 To create a production bundle, use `npm run build`.
 
+# Running local build
+The build folder is ready to be deployed.
+You may serve it with a static server:
 
-PWA
+  npm install -g serve
+  serve -s build
+
+
+# PWA
 
 // In production, we register a service worker to serve assets from local cache.
 

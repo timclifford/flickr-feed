@@ -1,8 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import './formResults.css';
+import { Link } from 'react-router-dom';
 
-export class FormResults extends React.Component {
+export class SearchFormResults extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -17,13 +16,18 @@ export class FormResults extends React.Component {
     return(
       <ul id="results" onClick={this.handleClick}>
         {this.props.results.map((element, index) => {
+          // Map tags ready for rendering.
+          const renderTagList = () => {
+            let encodeTagList = encodeURIComponent(this.props.val);
+            return encodeTagList;
+          };
           return(
             <li key={index} onClick={this.handleClick}>
-              <Link to={`/recipe/${this.props.results[index].recipe_id}`} >
-                <img src={this.props.results[index].image_url === null ? 'http://via.placeholder.com/640x960' : `${this.props.results[index].image_url}`} alt={`${this.props.results[index].title} poster`} className="recipeResult" />
+              <Link key={index} to={`/tag/${index}/${renderTagList()}`} >
+                <img src={`${this.props.results[index].media.m}`} alt={`${this.props.results[index].title}`} className="searchResult" />
                 <div>
                   <p>{this.props.results[index].title}</p>
-                  <p>{this.props.results[index].publisher}</p>
+                  <p><strong>Posted by: </strong>{element.author.slice(20, -2)}</p>
                 </div>
               </Link>
             </li>
