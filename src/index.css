@@ -130,6 +130,9 @@ header {
   width: 30px;
   margin-right: 10px;
   margin-top: 20px; }
+  @media (min-width: 600px) {
+    .logo {
+      margin-top: 0; } }
 
 /* Nav */
 ul {
@@ -277,6 +280,10 @@ form {
 
 .photo__link {
   display: block; }
+
+.photo__meta h2 {
+  border: none;
+  padding: 0; }
 
 @media (min-width: 600px) {
   .photo__meta {

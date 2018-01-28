@@ -29,8 +29,13 @@
   display: block;
 }
 
-@media (min-width: 600px) {
-  .photo__meta {
+.photo__meta {
+  h2 {
+    border: none;
+    padding: 0;    
+  }
+
+  @media (min-width: 600px) {
     display: inline-block;
     width: 80%;
     padding: 0 20px;
