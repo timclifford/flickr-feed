@@ -57,6 +57,8 @@ export class Photo extends React.Component {
   }
 
   render() {
+    const author = this.state.photo.author ? this.state.photo.author.slice(20, -2) : this.state.photo.author;
+
     return(
       <div className="photoWrapper">
         <div className="headerWrapper">
@@ -75,7 +77,7 @@ export class Photo extends React.Component {
           </div>
           <div className="photo__publisher">
             <span className="photo__author">
-              Posted by: <a href={'https://www.flickr.com/photos/' + this.state.photo.author_id}>{this.state.photo.author}</a>
+              Posted by: <a href={'https://www.flickr.com/photos/' + this.state.photo.author_id}>{author}</a>
             </span>
             <span className="photo__published">Published: {dateFormat(this.state.photo.published, "dS mmmm yyyy h:MM")}</span>
           </div>

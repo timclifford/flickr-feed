@@ -1,3 +1,11 @@
+.feed__wrapper {
+  h2 {
+    margin: 20px 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
 .feed__item {
   position: relative;
   padding: 5px 0 5px 3px;
@@ -9,20 +17,24 @@
   padding-bottom: 20px;
 }
 
-.photo__thumbnail {
-  display: inline-block;
-  width: 20%;
-  float: left;
+@media (min-width: 600px) {
+  .photo__thumbnail {
+    display: inline-block;
+    width: 20%;
+    float: left;
+  }
 }
 
 .photo__link {
   display: block;
 }
 
-.photo__meta {
-  display: inline-block;
-  width: 80%;
-  padding: 0 20px;
+@media (min-width: 600px) {
+  .photo__meta {
+    display: inline-block;
+    width: 80%;
+    padding: 0 20px;
+  }
 }
 
 .photo__author {

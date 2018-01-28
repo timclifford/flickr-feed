@@ -5,7 +5,7 @@ export class Nav extends React.Component {
     return(
       <nav>
         <ul className="navbar">
-          <li><a href="/about" rel="noopener noreferrer">About</a></li>
+          <li><a href="https://www.linkedin.com/in/tim-mark-clifford" target="_blank" rel="external">About</a></li>
         </ul>
       </nav>
     );

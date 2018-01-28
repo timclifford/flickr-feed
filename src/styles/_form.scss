@@ -1,22 +1,56 @@
 form {
   position: relative;
-  padding: 20px 0px;
   text-align: center;
-  border-bottom: 1px solid #ccc;
+  margin: 0 20px;
+  padding: 50px 0px;
+  max-width: 960px;
+  z-index: 1;
+}
+
+@media (min-width: 600px) {
+  form {
+    padding: 250px 0px;
+    margin: 0 auto;
+  }
+}
+
+.searchFormWrapper {
+  background: url('https://s.yimg.com/uy/build/images/sohp/2017/5-Finally-NilsStefanPuschel.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.2);
+  }
 }
 
 .searchBar {
   position: relative;
   font-family: 'Open Sans', sans-serif;
-  width: 80%;
   padding: 20px 0 20px 40px;
   border: 1px solid #bdbdbd;
   background: #fefefe;
   border-radius: 3px 0 0 3px;
   color: #000;
+  width: auto;
   outline: none;
   transition: all 0.35s ease-out;
+
+  @media (min-width: 600px) {
+    width: 80%;
+  }
 }
+
 
 .searchBar:focus {
   border: 1px solid #1dd1a1;
@@ -28,7 +62,7 @@ form {
 }
 
 .searchBar:focus::placeholder {
-  color: #1DE9B6;
+  color: #111;
 }
 
 .searchIcon {

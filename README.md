@@ -6,6 +6,10 @@ Flickr Public Feed
 
 To begin the development, run `npm start`.
 
+Scss to css compiler
+
+npm run watch-css
+
 
 # Running production build
 

@@ -10,8 +10,10 @@ export class Home extends React.Component {
         <div className="headerWrapper">
           <Header />
         </div>
-        <div className="container">
+        <div className="searchFormWrapper">
           <SearchForm />
+        </div>
+        <div className="container">
           <Feed />
         </div>
       </div>
