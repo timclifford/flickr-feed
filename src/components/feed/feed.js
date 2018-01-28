@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Truncate from 'react-truncate';
 import dateFormat from 'dateformat';
+import { animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 
 export class Feed extends React.Component {
   constructor(props) {
@@ -10,7 +11,8 @@ export class Feed extends React.Component {
       feed: {
         items: []
       },
-      hasTagResults: false
+      hasTagResults: false,
+      limit: 5
     }
     this.getData = this.getData.bind(this);
   }
@@ -80,44 +82,77 @@ export class Feed extends React.Component {
     return isTagResults;
   }
 
+  getInitialState() {
+    return {
+      limit: 5
+    }
+  }
+
+  onLoadMore = (e) => {
+    e.preventDefault();
+
+    this.setState({
+      limit: this.state.limit + 5
+    });
+
+    scroll.scrollToBottom({
+      smooth: "easeInOutQuint"
+    });
+  }
+
+  renderLoadMore() {
+    if (this.state.limit === 20) {
+      return;
+    }
+
+    return(
+      <button className="button--load-more" onClick={this.onLoadMore}>Load more...</button>
+    )
+  }
+
+  renderResults() {
+    return this.getTagResults().items.slice(0, this.state.limit).map((element, index) => {
+      let link = null;
+
+      if (this.checkIfTagResults()) {
+        link = `/tag/${index}/${this.props.tagIndex}`;
+      } else {
+        link = `/photo/${index}/${element.author_id}`;
+      }
+
+      return(
+        <article key={index} data-feed={index} className="feed__item">
+          <div className="photo__thumbnail">
+            <a href={link} className="photo__link">
+              <img src={element.media.m}/>
+            </a>
+          </div>
+          <div className="photo__meta">
+            <Link key={index} to={link} className="photo__link">
+              <h2 className="photo__title">
+                <Truncate lines={1} ellipsis={<span>...</span>}>
+                  {element.title}
+                </Truncate>
+              </h2>
+            </Link>
+            <div className="photo__author">
+              <strong>Posted by:</strong> <a href={'https://www.flickr.com/photos/' + element.author_id}>{element.author.slice(20, -2)}</a>
+            </div>
+            <div className="photo__published"><strong>Published:</strong> {dateFormat(element.published, "dS mmmm yyyy h:MM")}</div>
+            <div className="photo__view-more"><a href={element.link}>View on Flickr</a></div>
+          </div>
+        </article>
+      )
+    })
+  }
+
   render() {
     return(
       <div className="feed__wrapper">
         <h2>{this.props.tagResults ? this.props.tagResults.title : this.state.feed.title}</h2>
 
-        {this.getTagResults().items.map((element, index) => {
-          let link = null;
-
-          if (this.checkIfTagResults()) {
-            link = `/tag/${index}/${this.props.tagIndex}`;
-          } else {
-            link = `/photo/${index}/${element.author_id}`;
-          }
-
-          return(
-            <article key={index} className="feed__item">
-              <div className="photo__thumbnail">
-                <a href={link} className="photo__link">
-                  <img src={element.media.m}/>
-                </a>
-              </div>
-              <div className="photo__meta">
-                <Link key={index} to={link} className="photo__link">
-                  <h2 className="photo__title">
-                    <Truncate lines={1} ellipsis={<span>...</span>}>
-                      {element.title}
-                    </Truncate>
-                  </h2>
-                </Link>
-                <div className="photo__author">
-                  <strong>Posted by:</strong> <a href={'https://www.flickr.com/photos/' + element.author_id}>{element.author.slice(20, -2)}</a>
-                </div>
-                <div className="photo__published"><strong>Published:</strong> {dateFormat(element.published, "dS mmmm yyyy h:MM")}</div>
-                <div className="photo__view-more"><a href={element.link}>View on Flickr</a></div>
-              </div>
-            </article>
-          )
-        })}
+        {this.renderResults()}
+        {this.renderLoadMore()}
       </div>
     );
   }

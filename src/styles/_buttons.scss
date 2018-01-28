@@ -37,3 +37,18 @@
   background: #0fb9b1;
   text-decoration: underline;
 }
+
+.button--load-more {
+  width: 100%;
+  margin: 10px 0;
+  padding: 20px;
+  border: none;
+  font-family: 'Open sans';
+  font-size: 16px;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

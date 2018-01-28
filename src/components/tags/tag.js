@@ -1,7 +1,6 @@
 import React from 'react';
 import Truncate from 'react-truncate';
 import dateFormat from 'dateformat';
-import InfiniteScroll from 'react-infinite-scroller';
 import Highlighter from 'react-highlight-words';
 import { Header } from '../header/header';
 import { Feed } from '../feed/feed';
@@ -74,6 +73,12 @@ export class Tag extends React.Component {
     }
   }
 
+  renderResults() {
+    return(
+      <Feed tagResults={this.state.results} tagIndex={this.props.match.params.index}/>
+    )
+  }
+
   render() {
     return(
       <div className="photoWrapper">
@@ -124,7 +129,7 @@ export class Tag extends React.Component {
             </div>
           </div>
           <div className="tag__results">
-            <Feed tagResults={this.state.results} tagIndex={this.props.match.params.index}/>
+            {this.renderResults()}
           </div>
         </div>
       </div>

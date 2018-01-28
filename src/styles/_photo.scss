@@ -1,16 +1,22 @@
-.photo__header .photo__link {
-  display: inline-block;
-  width: 90%;
+.photo__header {
+  margin: 10px 0;
+
+  .photo__link {
+    display: inline-block;
+    width: 90%;
+  }
 }
 
 .photo__publisher {
   margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
 }
 
 .go-back {
   display: inline-block;
   float: right;
-  margin: 20px 0;
+  margin: 10px 0;
   padding: 8px;
 }
 
