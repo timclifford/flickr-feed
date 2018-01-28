@@ -4,9 +4,9 @@ Flickr Public Feed
 
 # Dev
 
-To begin the development, run `npm start`.
+To begin dev environment, run `npm start`.
 
-Scss to css compiler
+To run Scss to css compiler,
 
 npm run watch-css
 
