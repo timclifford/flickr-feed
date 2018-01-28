@@ -8,7 +8,22 @@ import { Tag } from './components/tags/tag';
 import './index.css';
 
 class App extends React.Component {
+  state = {
+    loading: true
+  }
+
+  componentDidMount() {
+    // Simulate an async action, and hide the spinner.
+   setTimeout(() => this.setState({ loading: false }), 1500);
+ }
+
   render() {
+    const { loading } = this.state;
+
+    if(loading) {
+      return null;
+    }
+
     return(
       <BrowserRouter>
         <Switch>

@@ -16,9 +16,13 @@ export class Feed extends React.Component {
   }
 
   getData() {
+    // As we don't have control of FLickr server we can't change the headers to
+    // allow 'Access-Control-Allow-Origin'. Instead, this adds in a CORS proxy
+    // so the browser accepts the response.
+    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     const flickrUrl = 'https://api.flickr.com/services/feeds/photos_public.gne?tags=potato&tagmode=all&format=json&nojsoncallback=true';
 
-    fetch(flickrUrl, {
+    fetch(proxyurl + flickrUrl, {
         headers : {
           "Content-Type": "application/json",
           "Accept": "application/json",
@@ -35,7 +39,6 @@ export class Feed extends React.Component {
 
         response.json().then(data => {
           const feed = data;
-          console.log(this);
           this.setState({ feed });
         });
 
@@ -86,7 +89,7 @@ export class Feed extends React.Component {
           let link = null;
 
           if (this.checkIfTagResults()) {
-            link = `/tag/${index}/${element.author_id}`;
+            link = `/tag/${index}/${this.props.tagIndex}`;
           } else {
             link = `/photo/${index}/${element.author_id}`;
           }

@@ -29,6 +29,28 @@ body {
   }
 }
 
+/* Loader styling */
+.loader:empty {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #ad2b65;
+  border-bottom-color: #ad2b65;
+  animation: spinner .8s ease infinite;
+}
+
+@keyframes spinner {
+ to {transform: rotate(360deg);}
+}
+
 /* Global */
 @import "styles/_typography.scss";
 @import "styles/_buttons.scss";

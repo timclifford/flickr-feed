@@ -33,9 +33,10 @@ export class SearchForm extends React.Component {
       document.getElementById('results').className = 'noDisplay';
     }
 
+    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     const tagUrl = `https://api.flickr.com/services/feeds/photos_public.gne?tags=${val}&tagmode=all&format=json&nojsoncallback=true`;
 
-    fetch(tagUrl, {
+    fetch(proxyurl + tagUrl, {
       headers : {
         'Content-Type': 'application/json',
         'Accept': 'application/json',

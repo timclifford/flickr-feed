@@ -1,6 +1,7 @@
 import React from 'react';
 import Truncate from 'react-truncate';
 import dateFormat from 'dateformat';
+import InfiniteScroll from 'react-infinite-scroller';
 import Highlighter from 'react-highlight-words';
 import { Header } from '../header/header';
 import { Feed } from '../feed/feed';
@@ -24,9 +25,10 @@ export class Tag extends React.Component {
 
   getData() {
     const tags = encodeURIComponent(this.props.match.params.index);
+    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     const flickrUrl = `https://api.flickr.com/services/feeds/photos_public.gne?tags=${tags}&tagmode=all&format=json&nojsoncallback=true`;
 
-    fetch(flickrUrl, {
+    fetch(proxyurl + flickrUrl, {
         headers : {
           "Content-Type": "application/json",
           "Accept": "application/json",
@@ -122,7 +124,7 @@ export class Tag extends React.Component {
             </div>
           </div>
           <div className="tag__results">
-            <Feed tagResults={this.state.results}/>
+            <Feed tagResults={this.state.results} tagIndex={this.props.match.params.index}/>
           </div>
         </div>
       </div>

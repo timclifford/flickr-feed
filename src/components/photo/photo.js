@@ -14,9 +14,10 @@ export class Photo extends React.Component {
   }
 
   getData() {
+    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     const flickrUrl = 'https://api.flickr.com/services/feeds/photos_public.gne?tags=potato&tagmode=all&format=json&nojsoncallback=true';
 
-    fetch(flickrUrl, {
+    fetch(proxyurl + flickrUrl, {
         headers : {
           "Content-Type": "application/json",
           "Accept": "application/json",
