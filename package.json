@@ -2,10 +2,13 @@
   "name": "flickr-feed",
   "version": "1.0.0",
   "description": "A basic public Flickr feed using Flickr API",
+  "homepage": "https://timclifford.github.io/flickr-feed",
   "main": "index.js",
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -15,6 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "dateformat": "^3.0.2",
+    "gh-pages": "^1.1.0",
     "node-sass-chokidar": "0.0.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
