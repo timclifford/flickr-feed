@@ -2,6 +2,8 @@
 Flickr Public Feed
 ------------------
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/timclifford/flickr-feed.svg)](https://greenkeeper.io/)
+
 # Dev
 
 To begin dev environment, run `npm start`.
